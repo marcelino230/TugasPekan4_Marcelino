@@ -1,0 +1,560 @@
+{
+  "stats": {
+    "suites": 12,
+    "tests": 10,
+    "passes": 10,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-06-23T03:35:44.401Z",
+    "end": "2023-06-23T03:35:49.489Z",
+    "duration": 5088,
+    "testsRegistered": 10,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2e2a55df-3d65-45e3-bb08-45811347ecdb",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [
+        {
+          "title": "\"before all\" hook in \"{root}\"",
+          "fullTitle": "\"before all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 575,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "try {\n  accessToken = await authenticateUser();\n} catch (error) {\n  throw error;\n}",
+          "err": {},
+          "uuid": "0c1e8fed-6f92-498f-84d4-449b2faff61d",
+          "parentUUID": "2e2a55df-3d65-45e3-bb08-45811347ecdb",
+          "isHook": true,
+          "skipped": false
+        },
+        {
+          "title": "\"before all\" hook in \"{root}\"",
+          "fullTitle": "\"before all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 1199,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "try {\n  accessToken = await authenticateUser();\n  // Membuat unit baru sebagai data uji untuk Get Unit Detail\n  unitId = await createUnitAndGetId();\n} catch (error) {\n  throw error;\n}",
+          "err": {},
+          "uuid": "354162f5-a4e2-4151-b7d6-4e0077451608",
+          "parentUUID": "2e2a55df-3d65-45e3-bb08-45811347ecdb",
+          "isHook": true,
+          "skipped": false
+        },
+        {
+          "title": "\"before all\" hook in \"{root}\"",
+          "fullTitle": "\"before all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 486,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "try {\n  accessToken = await authenticateUser();\n} catch (error) {\n  throw error;\n}",
+          "err": {},
+          "uuid": "7da16fb0-5b6a-4171-8539-21508456a09d",
+          "parentUUID": "2e2a55df-3d65-45e3-bb08-45811347ecdb",
+          "isHook": true,
+          "skipped": false
+        },
+        {
+          "title": "\"before all\" hook in \"{root}\"",
+          "fullTitle": "\"before all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 1135,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "try {\n  accessToken = await authenticateUser();\n  // Membuat unit baru sebagai data uji untuk Update Unit\n  unitId = await createUnitAndGetId();\n} catch (error) {\n  throw error;\n}",
+          "err": {},
+          "uuid": "9735255b-9cef-46fb-af11-493b1b35b7e2",
+          "parentUUID": "2e2a55df-3d65-45e3-bb08-45811347ecdb",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a94618f2-8bb8-4fc5-ba33-f7366565d053",
+          "title": "Unit Feature Tests",
+          "fullFile": "C:\\Users\\Marcelino_118418\\Documents\\Sanbercode\\tugas-pekan-4-QA-sanbercode-batch-45\\test\\unit\\addUnit.spec.js",
+          "file": "\\test\\unit\\addUnit.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "28d955d9-f2c9-475d-baed-263e05fdf0ee",
+              "title": "POST /units  (Positive Scenario)",
+              "fullFile": "C:\\Users\\Marcelino_118418\\Documents\\Sanbercode\\tugas-pekan-4-QA-sanbercode-batch-45\\test\\unit\\addUnit.spec.js",
+              "file": "\\test\\unit\\addUnit.spec.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should add a new unit",
+                  "fullTitle": "Unit Feature Tests POST /units  (Positive Scenario) should add a new unit",
+                  "timedOut": false,
+                  "duration": 161,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "try {\n  const unitData = {\n    name: 'gram',\n    description: 'weight measurement',\n  };\n  const response = await request(appUrl)\n    .post('/units')\n    .set('Authorization', `Bearer ${accessToken}`)\n    .send(unitData);\n  expect(response.status).to.equal(201); // Memeriksa status code 201 (Created)\n  expect(response.body.status).to.equal('success'); // Memeriksa status sukses\n  expect(response.body.data).to.be.an('object'); // Memeriksa bahwa data adalah sebuah objek\n  expect(response.body.data).to.have.property('unitId'); // Memeriksa apakah id unit ada dalam respons\n  expect(response.body.data.name).to.equal(unitData.name); // Memeriksa apakah nama unit sesuai dengan yang dikirimkan\n} catch (error) {\n  throw error;\n}",
+                  "err": {},
+                  "uuid": "9da54b70-f254-4a82-bd61-02cb4ff3f7ea",
+                  "parentUUID": "28d955d9-f2c9-475d-baed-263e05fdf0ee",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "9da54b70-f254-4a82-bd61-02cb4ff3f7ea"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 161,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "8aadce2d-ab1b-4a13-b2f0-80c505a26fab",
+              "title": "POST /units (Negative Scenario)",
+              "fullFile": "C:\\Users\\Marcelino_118418\\Documents\\Sanbercode\\tugas-pekan-4-QA-sanbercode-batch-45\\test\\unit\\addUnit.spec.js",
+              "file": "\\test\\unit\\addUnit.spec.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return 401 Unauthorized without access token",
+                  "fullTitle": "Unit Feature Tests POST /units (Negative Scenario) should return 401 Unauthorized without access token",
+                  "timedOut": false,
+                  "duration": 150,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "try {\n  const unitData = {\n    name: 'gram',\n    description: 'weight measurement',\n  };\n      \n  const response = await request(appUrl)\n    .post('/units')\n    .send(unitData);\n      \n  expect(response.status).to.equal(401); // Memeriksa status code 401 (Unauthorized)\n  expect(response.body.statusCode).to.equal(401); // Memeriksa status code 401 dalam body respons\n  expect(response.body.message).to.equal('Missing authentication'); // Memeriksa pesan kesalahan\n} catch (error) {\n  throw error;\n}",
+                  "err": {},
+                  "uuid": "0baf4b1f-f749-4a22-a274-1f78ebbd69ac",
+                  "parentUUID": "8aadce2d-ab1b-4a13-b2f0-80c505a26fab",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should return 400 Bad Request with missing fields",
+                  "fullTitle": "Unit Feature Tests POST /units (Negative Scenario) should return 400 Bad Request with missing fields",
+                  "timedOut": false,
+                  "duration": 182,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "try {\n  const response = await request(appUrl)\n    .post('/units')\n    .set('Authorization', `Bearer ${accessToken}`)\n    .send({});\n      \n  expect(response.status).to.equal(400); // Memeriksa status code 400 (Bad Request)\n  expect(response.body.message).to.equal('name is required, description is optional'); // Memeriksa pesan kesalahan\n} catch (error) {\n  throw error;\n}",
+                  "err": {},
+                  "uuid": "1d5141b0-af19-44b1-a6e6-da4635ff8ee7",
+                  "parentUUID": "8aadce2d-ab1b-4a13-b2f0-80c505a26fab",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "0baf4b1f-f749-4a22-a274-1f78ebbd69ac",
+                "1d5141b0-af19-44b1-a6e6-da4635ff8ee7"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 332,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "f056f497-6dbe-46d7-8df6-21f3700a97df",
+          "title": "Unit Feature Tests",
+          "fullFile": "C:\\Users\\Marcelino_118418\\Documents\\Sanbercode\\tugas-pekan-4-QA-sanbercode-batch-45\\test\\unit\\getUnitDetail.spec.js",
+          "file": "\\test\\unit\\getUnitDetail.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "b3e9cc49-3b50-4d50-86f7-4efa9422907a",
+              "title": "GET /units/{unitId} (Positive Scenario)",
+              "fullFile": "C:\\Users\\Marcelino_118418\\Documents\\Sanbercode\\tugas-pekan-4-QA-sanbercode-batch-45\\test\\unit\\getUnitDetail.spec.js",
+              "file": "\\test\\unit\\getUnitDetail.spec.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return the unit detail",
+                  "fullTitle": "Unit Feature Tests GET /units/{unitId} (Positive Scenario) should return the unit detail",
+                  "timedOut": false,
+                  "duration": 150,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "try {\n  const response = await request(appUrl)\n    .get(`/units/${unitId}`)\n    .set('Authorization', `Bearer ${accessToken}`);\n  expect(response.status).to.equal(200);\n  expect(response.body.status).to.equal('success');\n  expect(response.body.data).to.be.an('object');\n  expect(response.body.data.unit).to.have.property('name', 'gram');\n  expect(response.body.data.unit).to.have.property('description', 'weight measurement');\n} catch (error) {\n  throw error;\n}",
+                  "err": {},
+                  "uuid": "08f63b2f-b61d-4af6-a343-df25619713ef",
+                  "parentUUID": "b3e9cc49-3b50-4d50-86f7-4efa9422907a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "08f63b2f-b61d-4af6-a343-df25619713ef"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 150,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "0636e5c2-e606-416d-a2e8-844d21272e4d",
+              "title": "GET /units/{unitId} (Negative Scenario)",
+              "fullFile": "C:\\Users\\Marcelino_118418\\Documents\\Sanbercode\\tugas-pekan-4-QA-sanbercode-batch-45\\test\\unit\\getUnitDetail.spec.js",
+              "file": "\\test\\unit\\getUnitDetail.spec.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return 404 Not Found for non-existing unit",
+                  "fullTitle": "Unit Feature Tests GET /units/{unitId} (Negative Scenario) should return 404 Not Found for non-existing unit",
+                  "timedOut": false,
+                  "duration": 154,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "try {\n  const nonExistingUnitId = 'non-existing-unit-id';\n  \n  const response = await request(appUrl)\n    .get(`/units/${nonExistingUnitId}`)\n    .set('Authorization', `Bearer ${accessToken}`);\n  expect(response.status).to.equal(404);\n  expect(response.body.message).to.equal('id tidak valid');\n} catch (error) {\n  throw error;\n}",
+                  "err": {},
+                  "uuid": "7ac0914e-0ee3-4d0d-b50b-135a9c17fd42",
+                  "parentUUID": "0636e5c2-e606-416d-a2e8-844d21272e4d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "7ac0914e-0ee3-4d0d-b50b-135a9c17fd42"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 154,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "3015c3f1-871f-4955-858f-8637c0ebbeff",
+          "title": "Unit Feature Tests",
+          "fullFile": "C:\\Users\\Marcelino_118418\\Documents\\Sanbercode\\tugas-pekan-4-QA-sanbercode-batch-45\\test\\unit\\getUnitList.spec.js",
+          "file": "\\test\\unit\\getUnitList.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "69120a16-bb0e-4078-8bcb-802d5aab5cfd",
+              "title": "GET /units (Positive Scenario)",
+              "fullFile": "C:\\Users\\Marcelino_118418\\Documents\\Sanbercode\\tugas-pekan-4-QA-sanbercode-batch-45\\test\\unit\\getUnitList.spec.js",
+              "file": "\\test\\unit\\getUnitList.spec.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return a list of units",
+                  "fullTitle": "Unit Feature Tests GET /units (Positive Scenario) should return a list of units",
+                  "timedOut": false,
+                  "duration": 196,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "try {\n  let query1 = 'gram';\n  let query2 = 1;\n  // Menjalankan permintaan GET dengan Supertest ke endpoint '/units'\n  const response = await request(appUrl)\n    .get('/units')\n    .set('Authorization', `Bearer ${accessToken}`)\n    .query({ q: query1, page: query2 });\n  \n  // Memeriksa respons JSON untuk memastikan daftar unit telah dikembalikan\n  expect(response.status).to.equal(200);\n  expect(response.body.status).to.equal('success'); // Memeriksa status sukses\n  expect(response.body.data.units).to.be.an('array'); // Memeriksa bahwa units adalah sebuah array\n} catch (error) {\n  throw error;\n}",
+                  "err": {},
+                  "uuid": "fdd1a487-7df6-4f84-8619-08a4d1e0fcce",
+                  "parentUUID": "69120a16-bb0e-4078-8bcb-802d5aab5cfd",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "fdd1a487-7df6-4f84-8619-08a4d1e0fcce"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 196,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "79f510af-795f-4726-9285-e9a1edb10e2e",
+              "title": "GET /units (Negative Scenario)",
+              "fullFile": "C:\\Users\\Marcelino_118418\\Documents\\Sanbercode\\tugas-pekan-4-QA-sanbercode-batch-45\\test\\unit\\getUnitList.spec.js",
+              "file": "\\test\\unit\\getUnitList.spec.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return 401 Unauthorized without access token",
+                  "fullTitle": "Unit Feature Tests GET /units (Negative Scenario) should return 401 Unauthorized without access token",
+                  "timedOut": false,
+                  "duration": 153,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "try {\n  // Menjalankan permintaan GET tanpa access token\n  const response = await request(appUrl).get('/units');\n  \n  // Memeriksa respons JSON untuk memastikan status 401 Unauthorized\n  expect(response.status).to.equal(401);\n  expect(response.body.statusCode).to.equal(401); // Memeriksa status code 401\n  expect(response.body.message).to.equal('Missing authentication'); // Memeriksa pesan kesalahan\n} catch (error) {\n  throw error;\n}",
+                  "err": {},
+                  "uuid": "77398208-ab66-49d9-9f07-ab840d6c087b",
+                  "parentUUID": "79f510af-795f-4726-9285-e9a1edb10e2e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "77398208-ab66-49d9-9f07-ab840d6c087b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 153,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "2a7268cc-1325-4faa-bc42-b220730d7be7",
+          "title": "Unit Feature Tests",
+          "fullFile": "C:\\Users\\Marcelino_118418\\Documents\\Sanbercode\\tugas-pekan-4-QA-sanbercode-batch-45\\test\\unit\\updateUnit.spec.js",
+          "file": "\\test\\unit\\updateUnit.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "89b4f0e8-438b-4730-9a73-303d07cbaa5c",
+              "title": "PUT /units/{unitId} (Positive Scenario)",
+              "fullFile": "C:\\Users\\Marcelino_118418\\Documents\\Sanbercode\\tugas-pekan-4-QA-sanbercode-batch-45\\test\\unit\\updateUnit.spec.js",
+              "file": "\\test\\unit\\updateUnit.spec.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should update the unit",
+                  "fullTitle": "Unit Feature Tests PUT /units/{unitId} (Positive Scenario) should update the unit",
+                  "timedOut": false,
+                  "duration": 188,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "try {\n  const updatedUnitData = {\n    name: 'update-meter',\n    description: 'no-meter',\n  };\n  const response = await request(appUrl)\n    .put(`/units/${unitId}`)\n    .set('Authorization', `Bearer ${accessToken}`)\n    .send(updatedUnitData);\n  expect(response.status).to.equal(200);\n  expect(response.body.status).to.equal('success');\n  expect(response.body.data).to.be.an('object');\n  expect(response.body.data).to.have.property('name', 'update-meter');\n} catch (error) {\n  throw error;\n}",
+                  "err": {},
+                  "uuid": "de427e3b-3fd8-43af-a76e-1ea7c3a87516",
+                  "parentUUID": "89b4f0e8-438b-4730-9a73-303d07cbaa5c",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "de427e3b-3fd8-43af-a76e-1ea7c3a87516"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 188,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "eceab016-98b8-46de-b08a-441bc4d4e60d",
+              "title": "PUT /units/{unitId} (Negative Scenario)",
+              "fullFile": "C:\\Users\\Marcelino_118418\\Documents\\Sanbercode\\tugas-pekan-4-QA-sanbercode-batch-45\\test\\unit\\updateUnit.spec.js",
+              "file": "\\test\\unit\\updateUnit.spec.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return 404 Not Found for non-existing unit",
+                  "fullTitle": "Unit Feature Tests PUT /units/{unitId} (Negative Scenario) should return 404 Not Found for non-existing unit",
+                  "timedOut": false,
+                  "duration": 151,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "try {\n  const nonExistingUnitId = 'non-existing-unit-id';\n  const updatedUnitData = {\n    name: 'update-meter',\n    description: 'no-meter',\n  };\n  const response = await request(appUrl)\n    .put(`/units/${nonExistingUnitId}`)\n    .set('Authorization', `Bearer ${accessToken}`)\n    .send(updatedUnitData);\n  expect(response.status).to.equal(404);\n  expect(response.body.message).to.equal('id tidak valid');\n} catch (error) {\n  throw error;\n}",
+                  "err": {},
+                  "uuid": "23756905-737b-47f1-a96e-f4b811cf43c7",
+                  "parentUUID": "eceab016-98b8-46de-b08a-441bc4d4e60d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should return 400 Bad Request for invalid data",
+                  "fullTitle": "Unit Feature Tests PUT /units/{unitId} (Negative Scenario) should return 400 Bad Request for invalid data",
+                  "timedOut": false,
+                  "duration": 155,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "try {\n  const updatedUnitData = {\n    name: 12345, // Data yang tidak valid, harusnya string\n    description: 'no-meter',\n  };\n    \n  const response = await request(appUrl)\n    .put(`/units/${unitId}`)\n    .set('Authorization', `Bearer ${accessToken}`)\n    .send(updatedUnitData);\n    \n  expect(response.status).to.equal(400);\n  expect(response.body.message).to.equal('name is required, description is optional');\n} catch (error) {\n  throw error;\n}",
+                  "err": {},
+                  "uuid": "e81d7ac9-bbf3-4f55-8549-af65ddbe855a",
+                  "parentUUID": "eceab016-98b8-46de-b08a-441bc4d4e60d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "23756905-737b-47f1-a96e-f4b811cf43c7",
+                "e81d7ac9-bbf3-4f55-8549-af65ddbe855a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 306,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
